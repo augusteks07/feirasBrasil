@@ -176,11 +176,15 @@
             }
 
             header {
-                justify-content: center;
+                justify-content: ;
             }
 
             h2 {
                 font-size: 1.2rem;
+            }
+
+            header h1 {
+                font-size: 25px;
             }
 
             .feira {
@@ -190,6 +194,7 @@
 
             #menu {
                 display: inline;
+                right: 20px;
             }
 
         }
@@ -214,28 +219,24 @@
         <img src="./imagens/menu.png" id="menu" onclick="menuFunc()">
 
         <div class="menuWrapper">
-            <button class="headerButtons">Home</button>
-            <button class="headerButtons">Regionais</button>
-            <button class="headerButtons">Nacionais</button>
-            <button class="headerButtons">Internacionais</button>
-            <button class="headerButtons">Contatos</button>
+            <button class="headerButtons" onclick="window.location.href='regionais.html'">Regionais</button>
+            <button class="headerButtons" onclick="window.location.href='nacionais.html'">Nacionais</button>
+            <button class="headerButtons" onclick="window.location.href='internacionais.html'">Internacionais</button>
         </div>
 
         <div class="wrapper">
-            <button class="headerButtons">Home</button>
-            <button class="headerButtons">Regionais</button>
-            <button class="headerButtons">Nacionais</button>
-            <button class="headerButtons">Internacionais</button>
-            <button class="headerButtons">Contatos</button>
+            <button class="headerButtons" onclick="window.location.href='regionais.html'">Regionais</button>
+            <button class="headerButtons" onclick="window.location.href='nacionais.html'">Nacionais</button>
+            <button class="headerButtons" onclick="window.location.href='internacionais.html'">Internacionais</button>
         </div>
     </header>
 
     <main>
-        <h2>Descubra as principais feiras que movimentam o Brasil e o mundo!</h2>
+        <h2>Descubra as principais feiras que movimentam o Nordeste!</h2>
 
         <div class="container">
-            <div class="feira" style="background-image: url('./imagens/FEMEC.jpg');" onclick="window.open('https://www.femec.com.br')">
-                <div class="feira-info">Femec - MG</div>
+            <div class="feira" style="background-image: url('./regionais/feira-serido.jpg');" onclick="window.open('https://portal.ifrn.edu.br/campus/caico/eventos/feira-serido-ciencia/')">
+                <div class="feira-info">Feira Seridó - RN</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/expotec.webp');" onclick="window.open('https://www.expotec.org.br')">
                 <div class="feira-info">ExpoTech - PE</div>
@@ -243,23 +244,23 @@
             <div class="feira" style="background-image: url('./imagens/fenecit.avif');" onclick="window.open('https://www.fenecit.com')">
                 <div class="feira-info">Fenecit - PE</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/expozebu.jpg');" onclick="window.open('https://expozebu.com.br')">
-                <div class="feira-info">Expozebu - MG</div>
+            <div class="feira" style="background-image: url('./regionais/feciba.jpeg');" onclick="window.open('http://www.ba.gov.br/educacao/feira-de-ciencias-empreendedorismo-social-e-inovacao-da-bahia-feciba')">
+                <div class="feira-info">Feciba - BH</div>
             </div>
         </div>
 
         <div class="container">
-            <div class="feira" style="background-image: url('./imagens/febrace.jpg');" onclick="window.open('https://febrace.org.br')">
-                <div class="feira-info">Febrace - SP</div>
+            <div class="feira" style="background-image: url('./regionais/cienart.png');" onclick="window.open('http://www.cienart-se.com.br/')">
+                <div class="feira-info">Cienart - Sergipe</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/mostratec.png');" onclick="window.open('https://mostratec.liberato.com.br')">
-                <div class="feira-info">Mostratec - RS</div>
+            <div class="feira" style="background-image: url('./regionais/fdc.png');" onclick="window.open('https://https://feiradoconhecimento.com.br/')">
+                <div class="feira-info">FDC - Ceará</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/febic.png');" onclick="window.open('https://www.febic.com.br')">
-                <div class="feira-info">Febic - SC</div>
+            <div class="feira" style="background-image: url('./regionais/cientaf.jpeg');" onclick="window.open('https://cientaf2025.vercel.app')">
+                <div class="feira-info">CIENTAF - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/ISE.png')" onclick="window.open('https://www.iseexpo.com')">
-                <div class="feira-info">ISE EXPO - USA</div>
+            <div class="feira" style="background-image: url('./imagens/mocica.avif')" onclick="window.open('https://mocica.com.br/')">
+                <div class="feira-info">Mocica - Ceará</div>
             </div>
         </div>
 
@@ -279,8 +280,10 @@
     function menuFunc() {
         if (contador%2==0) {
             document.querySelector('.menuWrapper').style.display = 'flex'
+            document.getElementById('menu').src = './imagens/cancelar.png'
         } else {
             document.querySelector('.menuWrapper').style.display = 'none'
+            document.getElementById('menu').src = './imagens/menu.png'
         }
         contador++
     }

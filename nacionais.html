@@ -1,88 +1,293 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeirasBrasil</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Feiras Brasil</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Inter", sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 128, 0, 0.9);
+            backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5vw;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            height: 100px;
+        }
+
+        .logoDiv {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logoDiv img {
+            width: 70px;
+            height: 70px;
+            padding: 5px;
+        }
+
+        .bolaBranca {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            display: flex;
+            gap: 25px;
+        }
+
+        .headerButtons {
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .headerButtons::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .headerButtons:hover::after {
+            width: 100%;
+        }
+
+        main {
+            padding-top: 110px;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 40px;
+            color: #006400;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+            padding: 20px;
+        }
+
+        .feira {
+            width: 280px;
+            height: 280px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .feira:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feira-info {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        footer {
+            background: #004d00;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #aef1ae;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #menu {
+            position: absolute;
+            right: 60px;
+            cursor: pointer;
+            width: 40px;
+            display: none;
+        }
+
+        .menuWrapper {
+            display: none;
+            background-color: orange;
+            flex-direction: column;
+            position: absolute;
+            padding: 10px;
+            border-radius: 15px;
+            gap: 8px;
+            right: 20px;
+            top: 110px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                display: none;
+            }
+
+            header {
+                justify-content: ;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            .feira {
+                width: 90%;
+                height: 300px;
+            }
+
+            #menu {
+                display: inline;
+                right: 20px;
+            }
+
+        }
+    </style>
 </head>
 
-<style>
-
-* {
-    font-family: "inter", sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    color: white;
-}
-
-body {
-    background-color: white;
-}
-
-header {
-    background-color: green;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    padding: 40px;
-    position: relative;
-    align-items: center;
-}
-
-.wrapper {
-    justify-self: end;
-    display: flex;
-    gap: 15px;
-}
-
-.logo {
-    width: 70px;
-}
-
-.logoDiv {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    left: 3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-}
-
-.headerButtons {
-    background-color: green;
-    border: none;
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.headerButtons:hover {
-    transform: scale(1.2);
-    margin: 0 10px;
-}
-
-</style>
-
 <body>
-    
+
     <header>
-
-        <div class="logoDiv"><img src="logo.png" class="logo"></div>
-
-        <div class="wrapper">
-            <button class="headerButtons"><h1>Home</h1></button>
-            <button class="headerButtons"><h1>Regional</h1></button>
-            <button class="headerButtons"><h1>Nacionais</h1></button>
-            <button class="headerButtons"><h1>Internacionais</h1></button>
-            <button class="headerButtons"><h1>Contatos</h1></button>
+        <div class="logoDiv">
+            
+            <div class="bolaBranca">
+            
+                <img src="./imagens/logo.png" alt="Logo FeirasBrasil">
+            
+            </div>
+            
+            <h1 style="color: white;">Feiras Brasil</h1>
+       
         </div>
 
+        <img src="./imagens/menu.png" id="menu" onclick="menuFunc()">
+
+        <div class="menuWrapper">
+            <button class="headerButtons" onclick="window.location.href='regionais.html'">Regionais</button>
+            <button class="headerButtons" onclick="window.location.href='nacionais.html'">Nacionais</button>
+            <button class="headerButtons" onclick="window.location.href='internacionais.html'">Internacionais</button>
+        </div>
+
+        <div class="wrapper">
+            <button class="headerButtons" onclick="window.location.href='regionais.html'">Regionais</button>
+            <button class="headerButtons" onclick="window.location.href='nacionais.html'">Nacionais</button>
+            <button class="headerButtons" onclick="window.location.href='internacionais.html'">Internacionais</button>
+        </div>
     </header>
 
+    <main>
+        <h2>Descubra as principais feiras que movimentam o Brasil!</h2>
+
+        <div class="container">
+            <div class="feira" style="background-image: url('./imagens/FEMEC.jpg');" onclick="window.open('https://www.femec.com.br')">
+                <div class="feira-info">Femec - MG</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/expotec.webp');" onclick="window.open('https://www.expotec.org.br')">
+                <div class="feira-info">ExpoTech - PE</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/fenecit.avif');" onclick="window.open('https://www.fenecit.com')">
+                <div class="feira-info">Feciama - AM</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/expozebu.jpg');" onclick="window.open('https://expozebu.com.br')">
+                <div class="feira-info">Fenecit - PE</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="feira" style="background-image: url('./imagens/febrace.jpg');" onclick="window.open('https://febrace.org.br')">
+                <div class="feira-info">Febrace - SP</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/mostratec.png');" onclick="window.open('https://mostratec.liberato.com.br')">
+                <div class="feira-info">Mostratec - RS</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/febic.png');" onclick="window.open('https://www.febic.com.br')">
+                <div class="feira-info">Febic - SC</div>
+            </div>
+            <div class="feira" style="background-image: url('./imagens/fecitec.jpeg')" onclick="window.open('https://www.fecitec.com.br/')">
+                <div class="feira-info">Fecitec - MG</div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 FeirasBrasil — Todos os direitos reservados.</p>
+        <p>Contatos: <a href="https://instagram.com/augustooc7">Augusto</a>, <a href="https://instagram.com/caiofags">Caio F.</a>, <a href="https://instagram.com/dss_mauricio">Maurício</a></p>
+    </footer>
+
 </body>
+
+<script>
+
+    let contador = 2
+
+    function menuFunc() {
+        if (contador%2==0) {
+            document.querySelector('.menuWrapper').style.display = 'flex'
+            document.getElementById('menu').src = './imagens/cancelar.png'
+        } else {
+            document.querySelector('.menuWrapper').style.display = 'none'
+            document.getElementById('menu').src = './imagens/menu.png'
+        }
+        contador++
+    }
+
+</script>
+
 </html>
