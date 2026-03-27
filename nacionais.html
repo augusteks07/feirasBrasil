@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feiras Brasil</title>
+    <title>Feiras RN</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -150,33 +150,13 @@
             text-decoration: underline;
         }
 
-        #menu {
-            position: absolute;
-            right: 60px;
-            cursor: pointer;
-            width: 40px;
-            display: none;
-        }
-
-        .menuWrapper {
-            display: none;
-            background-color: orange;
-            flex-direction: column;
-            position: absolute;
-            padding: 10px;
-            border-radius: 15px;
-            gap: 8px;
-            right: 20px;
-            top: 110px;
-        }
-
         @media (max-width: 768px) {
             .wrapper {
                 display: none;
             }
 
             header {
-                justify-content: ;
+                justify-content: center;
             }
 
             h2 {
@@ -190,11 +170,6 @@
             .feira {
                 width: 90%;
                 height: 300px;
-            }
-
-            #menu {
-                display: inline;
-                right: 20px;
             }
 
         }
@@ -216,8 +191,6 @@
        
         </div>
 
-        <img src="./imagens/menu.png" id="menu" onclick="menuFunc()">
-
         <div class="calendario">calendario</div>
 
     </header>
@@ -227,58 +200,41 @@
 
         <div class="container">
             <div class="feira" style="background-image: url('./imagens/FEMEC.jpg');" onclick="window.open('https://www.femec.com.br')">
-                <div class="feira-info">Femec - MG</div>
+                <div class="feira-info">Feira Seridó Ciência - Caicó</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/expotec.webp');" onclick="window.open('https://www.expotec.org.br')">
-                <div class="feira-info">ExpoTech - PE</div>
+                <div class="feira-info">CIENTAF - São Vicente</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/fenecit.avif');" onclick="window.open('https://www.fenecit.com')">
-                <div class="feira-info">Feciama - AM</div>
+                <div class="feira-info">Feira da 9ª DIREC - Currais</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/expozebu.jpg');" onclick="window.open('https://expozebu.com.br')">
-                <div class="feira-info">Fenecit - PE</div>
+                <div class="feira-info">FECITERN - Natal Zona Norte</div>
             </div>
         </div>
 
         <div class="container">
             <div class="feira" style="background-image: url('./imagens/febrace.jpg');" onclick="window.open('https://febrace.org.br')">
-                <div class="feira-info">Febrace - SP</div>
+                <div class="feira-info">FCSP - Mossoró</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/mostratec.png');" onclick="window.open('https://mostratec.liberato.com.br')">
-                <div class="feira-info">Mostratec - RS</div>
+                <div class="feira-info">FERCITEC - Açu</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/febic.png');" onclick="window.open('https://www.febic.com.br')">
-                <div class="feira-info">Febic - SC</div>
+                <div class="feira-info">MOCITEC - Natal Zona Norte</div>
             </div>
             <div class="feira" style="background-image: url('./imagens/fecitec.jpeg')" onclick="window.open('https://www.fecitec.com.br/')">
-                <div class="feira-info">Fecitec - MG</div>
+                <div class="feira-info">FECIRME - Mossoró</div>
             </div>
         </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 FeirasBrasil — Todos os direitos reservados.</p>
+        <p>&copy; 2025 FeirasRN — Todos os direitos reservados.</p>
         <p>Contatos: <a href="https://instagram.com/augustooc7">Augusto</a>, <a href="https://instagram.com/caiofags">Caio F.</a>, <a href="https://instagram.com/dss_mauricio">Maurício</a></p>
     </footer>
 
 </body>
-
-<script>
-
-    let contador = 2
-
-    function menuFunc() {
-        if (contador%2==0) {
-            document.querySelector('.menuWrapper').style.display = 'flex'
-            document.getElementById('menu').src = './imagens/cancelar.png'
-        } else {
-            document.querySelector('.menuWrapper').style.display = 'none'
-            document.getElementById('menu').src = './imagens/menu.png'
-        }
-        contador++
-    }
-
-</script>
 
 </html>
