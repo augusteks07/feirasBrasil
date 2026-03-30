@@ -198,6 +198,197 @@
             }
 
         }
+
+        /* ===== CALENDÁRIO (novo) ===== */
+        #secaoCalendario {
+            max-width: 700px;
+            margin: 10px auto 50px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 28px;
+        }
+
+        .cal-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cal-topo h3 { color: #006400; font-size: 1.3rem; }
+
+        .cal-nav { display: flex; align-items: center; gap: 12px; }
+
+        .cal-nav button {
+            background: #006400;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .cal-nav button:hover { background: #004d00; }
+
+        #mesLabel {
+            font-weight: 700;
+            color: #006400;
+            min-width: 130px;
+            text-align: center;
+        }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .cal-nome-dia {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #888;
+            padding: 6px 0;
+            text-transform: uppercase;
+        }
+
+        .cal-dia {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid transparent;
+            background: #f5f5f5;
+            user-select: none;
+            min-height: 38px;
+        }
+
+        .cal-dia.vazio { background: transparent; cursor: default; border-color: transparent; }
+        .cal-dia.hoje  { background: #006400; color: white; font-weight: 700; }
+
+        .cal-dia.tem-feira        { background: #fff8e1; border-color: #f0b429; }
+        .cal-dia.vai-participar   { background: #e8f5e9; border-color: #006400; }
+        .cal-dia.tem-feira.vai-participar { background: #c8e6c9; border-color: #006400; }
+        .cal-dia.hoje.tem-feira   { background: #005200; border-color: #f0b429; }
+
+        .cal-dia:not(.vazio):hover { transform: scale(1.08); z-index: 2; box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+
+        .ponto-feira {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: #f0b429;
+            margin-top: 2px;
+        }
+        .cal-dia.vai-participar .ponto-feira,
+        .cal-dia.tem-feira.vai-participar .ponto-feira { background: #006400; }
+        .cal-dia.hoje .ponto-feira { background: white; }
+
+        .cal-legenda {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: #555;
+        }
+        .legenda-item { display: flex; align-items: center; gap: 6px; }
+        .legenda-cor  { width: 14px; height: 14px; border-radius: 4px; border: 2px solid transparent; flex-shrink: 0; }
+
+        .proximas-titulo {
+            font-weight: 700;
+            color: #006400;
+            margin: 22px 0 12px;
+            font-size: 1rem;
+            border-left: 4px solid #006400;
+            padding-left: 10px;
+        }
+
+        .evento-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 12px 14px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 8px;
+            transition: 0.2s;
+        }
+        .evento-item:hover { border-color: #006400; background: #f1f8f1; }
+
+        .evento-badge {
+            background: #006400;
+            color: white;
+            border-radius: 8px;
+            padding: 6px 10px;
+            text-align: center;
+            min-width: 50px;
+        }
+        .evento-badge .dia { font-size: 1.3rem; font-weight: 700; line-height: 1; }
+        .evento-badge .mes { font-size: 0.68rem; text-transform: uppercase; }
+
+        .evento-nome  { font-weight: 700; color: #006400; font-size: 0.95rem; }
+        .evento-local { font-size: 0.8rem; color: #777; margin-top: 2px; }
+
+        .btn-participar {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: #555;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: white;
+            transition: 0.2s;
+            font-family: inherit;
+        }
+        .btn-participar:hover { border-color: #006400; color: #006400; }
+        .btn-participar.marcado { background: #e8f5e9; border-color: #006400; color: #006400; font-weight: 700; }
+
+        .notif-aviso {
+            background: #fff8e1;
+            border: 1px solid #f0b429;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-top: 16px;
+            font-size: 0.82rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .notif-aviso button {
+            background: #006400;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .notif-aviso button:hover { background: #004d00; }
+
+        @media (max-width: 600px) {
+            #secaoCalendario { margin: 10px 14px 40px; padding: 16px 10px; }
+            .cal-dia { font-size: 0.76rem; min-height: 32px; }
+            .cal-grid { gap: 3px; }
+        }
     </style>
 </head>
 
@@ -205,21 +396,17 @@
 
     <header>
         <div class="logoDiv">
-            
             <div class="bolaBranca">
-            
                 <img src="./imagens/logo.png" alt="Logo FeirasBrasil">
-            
             </div>
-            
             <h1 style="color: white;">Feiras RN</h1>
-       
         </div>
 
         <img src="./imagens/menu.png" id="menu" onclick="menuFunc()">
 
-        <div class="calendario">calendario</div>
-
+        <div class="wrapper">
+            <button class="headerButtons" onclick="document.getElementById('secaoCalendario').scrollIntoView({behavior:'smooth'})">Calendário</button>
+        </div>
     </header>
 
     <main>
@@ -229,32 +416,73 @@
             <div class="feira" style="background-image: url('./regionais/roverr.jpeg');" onclick="window.open('https://www.instagram.com/roverxpedicao/')">
                 <div class="feira-info">ROVERXPEDIÇÃO - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/expotec.webp');" onclick="window.open('https://www.expotec.org.br')">
-                <div class="feira-info">ExpoTech - PE</div>
+            <div class="feira" style="background-image: url('./regionais/cientaf.jpeg');" onclick="window.open('https://eeaf.vercel.app/')">
+                <div class="feira-info">CIENTAF - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/fenecit.avif');" onclick="window.open('https://www.fenecit.com')">
-                <div class="feira-info">Feciama - AM</div>
+            <div class="feira" style="background-image: url('./regionais/FCSP.png');" onclick="window.open('https://assecom.ufersa.edu.br/2025/10/01/feira-de-ciencias-do-semiarido-potiguar-chega-a-15a-edicao-em-2025/')">
+                <div class="feira-info">FCSP - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/expozebu.jpg');" onclick="window.open('https://expozebu.com.br')">
-                <div class="feira-info">Fenecit - PE</div>
+            <div class="feira" style="background-image: url('./regionais/fecitern.jpeg');" onclick="window.open('https://portal.uern.br/blog/feira-estadual-de-ciencia-tecnologia-e-inovacao-fortalece-a-aproximacao-entre-uern-e-educacao-basica/')">
+                <div class="feira-info">FECITERN - RN</div>
             </div>
         </div>
 
         <div class="container">
-            <div class="feira" style="background-image: url('./imagens/febrace.jpg');" onclick="window.open('https://febrace.org.br')">
-                <div class="feira-info">Febrace - SP</div>
+            <div class="feira" style="background-image: url('./regionais/fera.jpeg');" onclick="window.open('https://www.instagram.com/feracaraubas/')">
+                <div class="feira-info">FERA - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/mostratec.png');" onclick="window.open('https://mostratec.liberato.com.br')">
-                <div class="feira-info">Mostratec - RS</div>
+            <div class="feira" style="background-image: url('./regionais/feira_serido.jpg');" onclick="window.open('https://portal.ifrn.edu.br/campus/caico/eventos/feira-serido-ciencia/')">
+                <div class="feira-info">FEIRA SERIDÓ CIÊNCIA - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/febic.png');" onclick="window.open('https://www.febic.com.br')">
-                <div class="feira-info">Febic - SC</div>
+            <div class="feira" style="background-image: url('./regionais/mociteczn.png');" onclick="window.open('https://doity.com.br/mociteczn')">
+                <div class="feira-info">MOCITECZN - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./imagens/fecitec.jpeg')" onclick="window.open('https://www.fecitec.com.br/')">
-                <div class="feira-info">Fecitec - MG</div>
+            <div class="feira" style="background-image: url('./regionais/fercitec.png')" onclick="window.open('https://www.instagram.com/p/DOJuoJyjn6R/')">
+                <div class="feira-info">FERCITEC - RN</div>
             </div>
         </div>
 
+        <!-- SEÇÃO CALENDÁRIO -->
+        <section id="secaoCalendario">
+            <div class="cal-topo">
+                <h3>📅 Calendário de Feiras</h3>
+                <div class="cal-nav">
+                    <button onclick="mudarMes(-1)">‹</button>
+                    <span id="mesLabel"></span>
+                    <button onclick="mudarMes(1)">›</button>
+                </div>
+            </div>
+
+            <div class="cal-grid" id="calGrid">
+                <div class="cal-nome-dia">Dom</div>
+                <div class="cal-nome-dia">Seg</div>
+                <div class="cal-nome-dia">Ter</div>
+                <div class="cal-nome-dia">Qua</div>
+                <div class="cal-nome-dia">Qui</div>
+                <div class="cal-nome-dia">Sex</div>
+                <div class="cal-nome-dia">Sáb</div>
+            </div>
+
+            <div class="cal-legenda">
+                <div class="legenda-item">
+                    <div class="legenda-cor" style="background:#fff8e1;border-color:#f0b429;"></div> Tem feira
+                </div>
+                <div class="legenda-item">
+                    <div class="legenda-cor" style="background:#e8f5e9;border-color:#006400;"></div> Vou participar
+                </div>
+                <div class="legenda-item">
+                    <div class="legenda-cor" style="background:#006400;border-color:#006400;"></div> Hoje
+                </div>
+            </div>
+
+            <div class="proximas-titulo">🗓️ Próximas Feiras</div>
+            <div id="listaEventos"></div>
+
+            <div class="notif-aviso" id="notifAviso">
+                🔔 Ative notificações para ser avisado 3 dias antes e no dia das feiras que marcou!
+                <button onclick="ativarNotificacoes()">Ativar</button>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -266,10 +494,188 @@
 
 <script>
 
+    // =============================================
+    // DATAS DAS FEIRAS — edite aqui para atualizar
+    // =============================================
+    const FEIRAS = [
+        { nome: "ROVERXPEDIÇÃO",        data: "2026-08-10", local: "RN" },
+        { nome: "CIENTAF",              data: "2026-09-15", local: "RN" },
+        { nome: "FCSP",                 data: "2026-10-05", local: "RN" },
+        { nome: "FECITERN",             data: "2026-10-20", local: "RN" },
+        { nome: "FERA",                 data: "2026-11-03", local: "Caraúbas, RN" },
+        { nome: "FEIRA SERIDÓ CIÊNCIA", data: "2026-11-18", local: "Caicó, RN" },
+        { nome: "MOCITECZN",            data: "2026-06-12", local: "RN" },
+        { nome: "FERCITEC",             data: "2026-07-08", local: "RN" },
+    ];
+    // =============================================
+
+    const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+    const MESES_CURTOS = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+
+    let anoAtual, mesAtual;
+    let participando = JSON.parse(localStorage.getItem('feirasRN_participando') || '[]');
+
+    function salvarParticipando() {
+        localStorage.setItem('feirasRN_participando', JSON.stringify(participando));
+    }
+
+    function toggleParticipando(dataStr) {
+        const idx = participando.indexOf(dataStr);
+        if (idx === -1) participando.push(dataStr);
+        else participando.splice(idx, 1);
+        salvarParticipando();
+        renderCalendario();
+        renderLista();
+        checarAvisos();
+    }
+
+    function feirasNaData(dataStr) {
+        return FEIRAS.filter(f => f.data === dataStr);
+    }
+
+    function iniciar() {
+        const hoje = new Date();
+        anoAtual = hoje.getFullYear();
+        mesAtual = hoje.getMonth();
+        renderCalendario();
+        renderLista();
+        verificarNotificacoes();
+    }
+
+    function mudarMes(dir) {
+        mesAtual += dir;
+        if (mesAtual > 11) { mesAtual = 0; anoAtual++; }
+        if (mesAtual < 0)  { mesAtual = 11; anoAtual--; }
+        renderCalendario();
+    }
+
+    function renderCalendario() {
+        document.getElementById('mesLabel').textContent = `${MESES[mesAtual]} ${anoAtual}`;
+
+        const grid = document.getElementById('calGrid');
+        while (grid.children.length > 7) grid.removeChild(grid.lastChild);
+
+        const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
+        const diasNoMes   = new Date(anoAtual, mesAtual + 1, 0).getDate();
+        const hoje = new Date();
+
+        for (let i = 0; i < primeiroDia; i++) {
+            const el = document.createElement('div');
+            el.className = 'cal-dia vazio';
+            grid.appendChild(el);
+        }
+
+        for (let d = 1; d <= diasNoMes; d++) {
+            const dataStr = `${anoAtual}-${String(mesAtual+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+            const feiras  = feirasNaData(dataStr);
+            const ehHoje  = (d === hoje.getDate() && mesAtual === hoje.getMonth() && anoAtual === hoje.getFullYear());
+            const marcado = participando.includes(dataStr);
+
+            const el = document.createElement('div');
+            let cls = 'cal-dia';
+            if (ehHoje)          cls += ' hoje';
+            if (feiras.length)   cls += ' tem-feira';
+            if (marcado)         cls += ' vai-participar';
+            el.className = cls;
+
+            const nomeFeiras = feiras.map(f => f.nome).join(', ');
+            el.title = feiras.length ? nomeFeiras : 'Sem feira neste dia';
+
+            el.innerHTML = `<span>${d}</span>${feiras.length ? '<div class="ponto-feira"></div>' : ''}`;
+
+            // Só permite marcar dias com feira
+            if (feiras.length) {
+                el.addEventListener('click', () => toggleParticipando(dataStr));
+            }
+
+            grid.appendChild(el);
+        }
+    }
+
+    function renderLista() {
+        const lista = document.getElementById('listaEventos');
+        const hoje  = new Date();
+        hoje.setHours(0, 0, 0, 0);
+
+        const proximas = FEIRAS
+            .filter(f => new Date(f.data + 'T00:00:00') >= hoje)
+            .sort((a, b) => a.data.localeCompare(b.data));
+
+        if (!proximas.length) {
+            lista.innerHTML = '<div style="color:#aaa;font-style:italic;padding:12px 0;">Nenhuma feira próxima cadastrada.</div>';
+            return;
+        }
+
+        lista.innerHTML = proximas.map(f => {
+            const d = new Date(f.data + 'T00:00:00');
+            const dia = String(d.getDate()).padStart(2, '0');
+            const mes = MESES_CURTOS[d.getMonth()];
+            const ano = d.getFullYear();
+            const marcado = participando.includes(f.data);
+            return `
+            <div class="evento-item">
+                <div class="evento-badge">
+                    <div class="dia">${dia}</div>
+                    <div class="mes">${mes} ${ano}</div>
+                </div>
+                <div style="flex:1;">
+                    <div class="evento-nome">${f.nome}</div>
+                    <div class="evento-local">📍 ${f.local}</div>
+                </div>
+                <button class="btn-participar ${marcado ? 'marcado' : ''}" onclick="toggleParticipando('${f.data}')">
+                    ${marcado ? '✅ Vou!' : '☐ Vou participar'}
+                </button>
+            </div>`;
+        }).join('');
+    }
+
+    // ===== NOTIFICAÇÕES =====
+    function verificarNotificacoes() {
+        if (Notification.permission === 'granted') {
+            document.getElementById('notifAviso').style.display = 'none';
+            checarAvisos();
+        } else if (Notification.permission === 'denied') {
+            document.getElementById('notifAviso').style.display = 'none';
+        }
+    }
+
+    function ativarNotificacoes() {
+        Notification.requestPermission().then(perm => {
+            if (perm === 'granted') {
+                document.getElementById('notifAviso').style.display = 'none';
+                checarAvisos();
+                new Notification('Feiras RN 🌿', { body: 'Notificações ativadas! Você será avisado antes das feiras.' });
+            }
+        });
+    }
+
+    function checarAvisos() {
+        if (Notification.permission !== 'granted') return;
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+
+        participando.forEach(dataStr => {
+            const dataFeira = new Date(dataStr + 'T00:00:00');
+            const diff = Math.round((dataFeira - hoje) / (1000 * 60 * 60 * 24));
+            const feiras = feirasNaData(dataStr);
+            if (!feiras.length) return;
+
+            const nome = feiras[0].nome;
+            if (diff === 3) {
+                new Notification('Feiras RN 🌿', { body: `Faltam 3 dias para a ${nome}! Prepare-se!`, icon: './imagens/logo.png' });
+            } else if (diff === 1) {
+                new Notification('Feiras RN 🌿', { body: `Amanhã é a ${nome}! Boa sorte! 🎉`, icon: './imagens/logo.png' });
+            } else if (diff === 0) {
+                new Notification('Feiras RN 🌿', { body: `Hoje é a ${nome}! Arrase! 🚀`, icon: './imagens/logo.png' });
+            }
+        });
+    }
+
+    // ===== MENU MOBILE (original) =====
     let contador = 2
 
     function menuFunc() {
-        if (contador%2==0) {
+        if (contador % 2 == 0) {
             document.querySelector('.menuWrapper').style.display = 'flex'
             document.getElementById('menu').src = './imagens/cancelar.png'
         } else {
@@ -278,6 +684,8 @@
         }
         contador++
     }
+
+    iniciar();
 
 </script>
 
