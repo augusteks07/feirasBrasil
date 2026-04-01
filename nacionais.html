@@ -199,7 +199,7 @@
 
         }
 
-        /* ===== CALENDÁRIO (novo) ===== */
+        /* ===== CALENDÁRIO ===== */
         #secaoCalendario {
             max-width: 700px;
             margin: 10px auto 50px;
@@ -412,6 +412,7 @@
     <main>
         <h2>Descubra as principais feiras que movimentam o Rio Grande do Norte!</h2>
 
+        <!-- LINHA 1 — feiras originais -->
         <div class="container">
             <div class="feira" style="background-image: url('./regionais/roverr.jpeg');" onclick="window.open('https://www.instagram.com/roverxpedicao/')">
                 <div class="feira-info">ROVERXPEDIÇÃO - RN</div>
@@ -427,6 +428,7 @@
             </div>
         </div>
 
+        <!-- LINHA 2 — feiras originais -->
         <div class="container">
             <div class="feira" style="background-image: url('./regionais/fera.jpeg');" onclick="window.open('https://www.instagram.com/feracaraubas/')">
                 <div class="feira-info">FERA - RN</div>
@@ -442,7 +444,23 @@
             </div>
         </div>
 
-        <!-- SEÇÃO CALENDÁRIO -->
+        <!-- LINHA 3 — novas feiras -->
+        <div class="container">
+            <div class="feira" style="background-image: url('./regionais/fecirme.webp');" onclick="window.open('https://www.even3.com.br/iv_fecirme/')">
+                <div class="feira-info">FECIRME - Mossoró, RN</div>
+            </div>
+            <div class="feira" style="background-image: url('./regionais/mocicult.jpeg');" onclick="window.open('https://mocicult.com/')">
+                <div class="feira-info">MOCICULT - Açu, RN</div>
+            </div>
+            <div class="feira" style="background-image: url('./regionais/faop.jpg');" onclick="window.open('https://www.instagram.com/ifrn_pferros/')">
+                <div class="feira-info">F. CIÊNCIAS ALTO OESTE POTIGUAR - RN</div>
+            </div>
+            <div class="feira" style="background-image: url('./regionais/cabugi.jpg');" onclick="window.open('https://www.even3.com.br/')">
+                <div class="feira-info">F. CIÊNCIAS SERTÃO CENTRAL CABUGI - RN</div>
+            </div>
+        </div>
+
+        <!-- CALENDÁRIO -->
         <section id="secaoCalendario">
             <div class="cal-topo">
                 <h3>📅 Calendário de Feiras</h3>
@@ -498,14 +516,18 @@
     // DATAS DAS FEIRAS — edite aqui para atualizar
     // =============================================
     const FEIRAS = [
-        { nome: "ROVERXPEDIÇÃO",        data: "2026-08-10", local: "RN" },
-        { nome: "CIENTAF",              data: "2026-09-15", local: "RN" },
-        { nome: "FCSP",                 data: "2026-10-05", local: "RN" },
-        { nome: "FECITERN",             data: "2026-10-20", local: "RN" },
-        { nome: "FERA",                 data: "2026-11-03", local: "Caraúbas, RN" },
-        { nome: "FEIRA SERIDÓ CIÊNCIA", data: "2026-11-18", local: "Caicó, RN" },
-        { nome: "MOCITECZN",            data: "2026-06-12", local: "RN" },
-        { nome: "FERCITEC",             data: "2026-07-08", local: "RN" },
+        { nome: "ROVERXPEDIÇÃO",                    data: "2026-08-10", local: "RN" },
+        { nome: "CIENTAF",                           data: "2026-09-15", local: "RN" },
+        { nome: "FCSP",                              data: "2026-10-05", local: "Mossoró, RN" },
+        { nome: "FECITERN",                          data: "2026-10-20", local: "Natal, RN" },
+        { nome: "FERA",                              data: "2026-11-03", local: "Caraúbas, RN" },
+        { nome: "FEIRA SERIDÓ CIÊNCIA",              data: "2026-11-18", local: "Caicó, RN" },
+        { nome: "MOCITECZN",                         data: "2026-06-12", local: "Natal, RN" },
+        { nome: "FERCITEC",                          data: "2026-07-08", local: "RN" },
+        { nome: "FECIRME",                           data: "2026-09-22", local: "Mossoró, RN" },
+        { nome: "MOCICULT",                          data: "2026-08-25", local: "Açu, RN" },
+        { nome: "F. CIÊNCIAS ALTO OESTE POTIGUAR",  data: "2026-10-14", local: "Pau dos Ferros, RN" },
+        { nome: "F. CIÊNCIAS SERTÃO CENTRAL CABUGI", data: "2026-09-30", local: "Angicos, RN" },
     ];
     // =============================================
 
@@ -577,13 +599,9 @@
             if (feiras.length)   cls += ' tem-feira';
             if (marcado)         cls += ' vai-participar';
             el.className = cls;
-
-            const nomeFeiras = feiras.map(f => f.nome).join(', ');
-            el.title = feiras.length ? nomeFeiras : 'Sem feira neste dia';
-
+            el.title = feiras.length ? feiras.map(f => f.nome).join(', ') : 'Sem feira neste dia';
             el.innerHTML = `<span>${d}</span>${feiras.length ? '<div class="ponto-feira"></div>' : ''}`;
 
-            // Só permite marcar dias com feira
             if (feiras.length) {
                 el.addEventListener('click', () => toggleParticipando(dataStr));
             }
@@ -659,15 +677,10 @@
             const diff = Math.round((dataFeira - hoje) / (1000 * 60 * 60 * 24));
             const feiras = feirasNaData(dataStr);
             if (!feiras.length) return;
-
             const nome = feiras[0].nome;
-            if (diff === 3) {
-                new Notification('Feiras RN 🌿', { body: `Faltam 3 dias para a ${nome}! Prepare-se!`, icon: './imagens/logo.png' });
-            } else if (diff === 1) {
-                new Notification('Feiras RN 🌿', { body: `Amanhã é a ${nome}! Boa sorte! 🎉`, icon: './imagens/logo.png' });
-            } else if (diff === 0) {
-                new Notification('Feiras RN 🌿', { body: `Hoje é a ${nome}! Arrase! 🚀`, icon: './imagens/logo.png' });
-            }
+            if (diff === 3) new Notification('Feiras RN 🌿', { body: `Faltam 3 dias para a ${nome}! Prepare-se!`, icon: './imagens/logo.png' });
+            else if (diff === 1) new Notification('Feiras RN 🌿', { body: `Amanhã é a ${nome}! Boa sorte! 🎉`, icon: './imagens/logo.png' });
+            else if (diff === 0) new Notification('Feiras RN 🌿', { body: `Hoje é a ${nome}! Arrase! 🚀`, icon: './imagens/logo.png' });
         });
     }
 
