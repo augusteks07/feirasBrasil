@@ -35,25 +35,16 @@
             height: 100px;
         }
 
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
         .logoDiv {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logoDiv img {
-            width: 70px;
-            height: 70px;
-            padding: 5px;
-        }
-
-        .bolaBranca {
-            width: 80px;
-            height: 80px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
+            flex-direction: row;
+            gap: 30px;
         }
 
         .wrapper {
@@ -172,6 +163,11 @@
                 height: 300px;
             }
 
+            #menu {
+                display: inline;
+                cursor: pointer;
+            }
+
         }
 
         /* ===== CALENDÁRIO ===== */
@@ -180,7 +176,7 @@
             margin: 10px auto 50px;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             padding: 28px;
         }
 
@@ -193,9 +189,16 @@
             gap: 10px;
         }
 
-        .cal-topo h3 { color: #006400; font-size: 1.3rem; }
+        .cal-topo h3 {
+            color: #006400;
+            font-size: 1.3rem;
+        }
 
-        .cal-nav { display: flex; align-items: center; gap: 12px; }
+        .cal-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
         .cal-nav button {
             background: #006400;
@@ -208,7 +211,10 @@
             cursor: pointer;
             transition: 0.2s;
         }
-        .cal-nav button:hover { background: #004d00; }
+
+        .cal-nav button:hover {
+            background: #004d00;
+        }
 
         #mesLabel {
             font-weight: 700;
@@ -248,25 +254,60 @@
             min-height: 38px;
         }
 
-        .cal-dia.vazio { background: transparent; cursor: default; border-color: transparent; }
-        .cal-dia.hoje  { background: #006400; color: white; font-weight: 700; }
+        .cal-dia.vazio {
+            background: transparent;
+            cursor: default;
+            border-color: transparent;
+        }
 
-        .cal-dia.tem-feira        { background: #fff8e1; border-color: #f0b429; }
-        .cal-dia.vai-participar   { background: #e8f5e9; border-color: #006400; }
-        .cal-dia.tem-feira.vai-participar { background: #c8e6c9; border-color: #006400; }
-        .cal-dia.hoje.tem-feira   { background: #005200; border-color: #f0b429; }
+        .cal-dia.hoje {
+            background: #006400;
+            color: white;
+            font-weight: 700;
+        }
 
-        .cal-dia:not(.vazio):hover { transform: scale(1.08); z-index: 2; box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+        .cal-dia.tem-feira {
+            background: #fff8e1;
+            border-color: #f0b429;
+        }
+
+        .cal-dia.vai-participar {
+            background: #e8f5e9;
+            border-color: #006400;
+        }
+
+        .cal-dia.tem-feira.vai-participar {
+            background: #c8e6c9;
+            border-color: #006400;
+        }
+
+        .cal-dia.hoje.tem-feira {
+            background: #005200;
+            border-color: #f0b429;
+        }
+
+        .cal-dia:not(.vazio):hover {
+            transform: scale(1.08);
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+        }
 
         .ponto-feira {
-            width: 5px; height: 5px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: #f0b429;
             margin-top: 2px;
         }
+
         .cal-dia.vai-participar .ponto-feira,
-        .cal-dia.tem-feira.vai-participar .ponto-feira { background: #006400; }
-        .cal-dia.hoje .ponto-feira { background: white; }
+        .cal-dia.tem-feira.vai-participar .ponto-feira {
+            background: #006400;
+        }
+
+        .cal-dia.hoje .ponto-feira {
+            background: white;
+        }
 
         .cal-legenda {
             display: flex;
@@ -276,8 +317,20 @@
             font-size: 0.82rem;
             color: #555;
         }
-        .legenda-item { display: flex; align-items: center; gap: 6px; }
-        .legenda-cor  { width: 14px; height: 14px; border-radius: 4px; border: 2px solid transparent; flex-shrink: 0; }
+
+        .legenda-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legenda-cor {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
 
         .proximas-titulo {
             font-weight: 700;
@@ -299,7 +352,11 @@
             margin-bottom: 8px;
             transition: 0.2s;
         }
-        .evento-item:hover { border-color: #006400; background: #f1f8f1; }
+
+        .evento-item:hover {
+            border-color: #006400;
+            background: #f1f8f1;
+        }
 
         .evento-badge {
             background: #006400;
@@ -309,11 +366,29 @@
             text-align: center;
             min-width: 50px;
         }
-        .evento-badge .dia { font-size: 1.3rem; font-weight: 700; line-height: 1; }
-        .evento-badge .mes { font-size: 0.68rem; text-transform: uppercase; }
 
-        .evento-nome  { font-weight: 700; color: #006400; font-size: 0.95rem; }
-        .evento-local { font-size: 0.8rem; color: #777; margin-top: 2px; }
+        .evento-badge .dia {
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .evento-badge .mes {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+        }
+
+        .evento-nome {
+            font-weight: 700;
+            color: #006400;
+            font-size: 0.95rem;
+        }
+
+        .evento-local {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 2px;
+        }
 
         .btn-participar {
             margin-left: auto;
@@ -331,8 +406,18 @@
             transition: 0.2s;
             font-family: inherit;
         }
-        .btn-participar:hover { border-color: #006400; color: #006400; }
-        .btn-participar.marcado { background: #e8f5e9; border-color: #006400; color: #006400; font-weight: 700; }
+
+        .btn-participar:hover {
+            border-color: #006400;
+            color: #006400;
+        }
+
+        .btn-participar.marcado {
+            background: #e8f5e9;
+            border-color: #006400;
+            color: #006400;
+            font-weight: 700;
+        }
 
         .notif-aviso {
             background: #fff8e1;
@@ -347,6 +432,7 @@
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .notif-aviso button {
             background: #006400;
             color: white;
@@ -357,15 +443,54 @@
             cursor: pointer;
             font-family: inherit;
         }
-        .notif-aviso button:hover { background: #004d00; }
+
+        .notif-aviso button:hover {
+            background: #004d00;
+        }
+
+        .linhaPreta {
+            width: 80%;
+            height: 3px;
+            background-color: black;
+            margin: 50px auto;
+            border-radius: 100px;
+        }
+
+        #menu {
+            display: none;
+            position: absolute;
+            right: 50px;
+        }        
 
         @media (max-width: 600px) {
-            #secaoCalendario { margin: 10px 14px 40px; padding: 16px 10px; }
-            .cal-dia { font-size: 0.76rem; min-height: 32px; }
-            .cal-grid { gap: 3px; }
-        .evento-item { flex-wrap: wrap; }
-    .btn-participar { margin-left: 0; width: 100%; justify-content: center; }
-}
+            #secaoCalendario {
+                margin: 10px 14px 40px;
+                padding: 16px 10px;
+            }
+
+            .cal-dia {
+                font-size: 0.76rem;
+                min-height: 32px;
+            }
+
+            .cal-grid {
+                gap: 3px;
+            }
+
+            .evento-item {
+                flex-wrap: wrap;
+            }
+
+            .btn-participar {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+            }
+
+            #menu {
+                display: inline;
+            }
+        }
     </style>
 </head>
 
@@ -373,16 +498,15 @@
 
     <header>
         <div class="logoDiv">
-            <div class="bolaBranca">
-                <img src="./imagens/logo.png" alt="Logo FeirasBrasil">
-            </div>
+            <img src="./imagens/feiras-rn.png" alt="Logo FeirasBrasil" class="logo">
             <h1 style="color: white;">Feiras RN</h1>
         </div>
 
         <img src="./imagens/menu.png" id="menu" onclick="menuFunc()">
 
         <div class="wrapper">
-            <button class="headerButtons" onclick="document.getElementById('secaoCalendario').scrollIntoView({behavior:'smooth'})">Calendário</button>
+            <button class="headerButtons"
+                onclick="document.getElementById('secaoCalendario').scrollIntoView({behavior:'smooth'})">Calendário</button>
         </div>
     </header>
 
@@ -391,51 +515,65 @@
 
         <!-- LINHA 1 — feiras originais -->
         <div class="container">
-            <div class="feira" style="background-image: url('./regionais/roverr.jpeg');" onclick="window.open('https://www.instagram.com/roverxpedicao/')">
+            <div class="feira" style="background-image: url('./regionais/roverr.jpeg');"
+                onclick="window.open('https://www.instagram.com/roverxpedicao/')">
                 <div class="feira-info">ROVERXPEDIÇÃO - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/cientaf.jpeg');" onclick="window.open('https://eeaf.vercel.app/')">
+            <div class="feira" style="background-image: url('./regionais/cientaf.jpeg');"
+                onclick="window.open('https://eeaf.vercel.app/')">
                 <div class="feira-info">CIENTAF - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/FCSP.png');" onclick="window.open('https://assecom.ufersa.edu.br/2025/10/01/feira-de-ciencias-do-semiarido-potiguar-chega-a-15a-edicao-em-2025/')">
+            <div class="feira" style="background-image: url('./regionais/FCSP.png');"
+                onclick="window.open('https://assecom.ufersa.edu.br/2025/10/01/feira-de-ciencias-do-semiarido-potiguar-chega-a-15a-edicao-em-2025/')">
                 <div class="feira-info">FCSP - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/fecitern.jpeg');" onclick="window.open('https://portal.uern.br/blog/feira-estadual-de-ciencia-tecnologia-e-inovacao-fortalece-a-aproximacao-entre-uern-e-educacao-basica/')">
+            <div class="feira" style="background-image: url('./regionais/fecitern.jpeg');"
+                onclick="window.open('https://portal.uern.br/blog/feira-estadual-de-ciencia-tecnologia-e-inovacao-fortalece-a-aproximacao-entre-uern-e-educacao-basica/')">
                 <div class="feira-info">FECITERN - RN</div>
             </div>
         </div>
 
         <!-- LINHA 2 — feiras originais -->
         <div class="container">
-            <div class="feira" style="background-image: url('./regionais/fera.jpeg');" onclick="window.open('https://www.instagram.com/feracaraubas/')">
+            <div class="feira" style="background-image: url('./regionais/fera.jpeg');"
+                onclick="window.open('https://www.instagram.com/feracaraubas/')">
                 <div class="feira-info">FERA - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/feira_serido.jpg');" onclick="window.open('https://portal.ifrn.edu.br/campus/caico/eventos/feira-serido-ciencia/')">
+            <div class="feira" style="background-image: url('./regionais/feira_serido.jpg');"
+                onclick="window.open('https://portal.ifrn.edu.br/campus/caico/eventos/feira-serido-ciencia/')">
                 <div class="feira-info">FEIRA SERIDÓ CIÊNCIA - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/mociteczn.png');" onclick="window.open('https://doity.com.br/mociteczn')">
+            <div class="feira" style="background-image: url('./regionais/mociteczn.png');"
+                onclick="window.open('https://doity.com.br/mociteczn')">
                 <div class="feira-info">MOCITECZN - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/fercitec.png')" onclick="window.open('https://www.instagram.com/p/DOJuoJyjn6R/')">
+            <div class="feira" style="background-image: url('./regionais/fercitec.png')"
+                onclick="window.open('https://www.instagram.com/p/DOJuoJyjn6R/')">
                 <div class="feira-info">FERCITEC - RN</div>
             </div>
         </div>
 
         <!-- LINHA 3 — novas feiras -->
         <div class="container">
-            <div class="feira" style="background-image: url('./regionais/fecirme.webp');" onclick="window.open('https://www.even3.com.br/iv_fecirme/')">
+            <div class="feira" style="background-image: url('./regionais/fecirme.webp');"
+                onclick="window.open('https://www.even3.com.br/iv_fecirme/')">
                 <div class="feira-info">FECIRME - Mossoró, RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/mocicult.jpeg');" onclick="window.open('https://mocicult.com/')">
+            <div class="feira" style="background-image: url('./regionais/mocicult.jpeg');"
+                onclick="window.open('https://mocicult.com/')">
                 <div class="feira-info">MOCICULT - Açu, RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/faop.jpg');" onclick="window.open('https://www.instagram.com/ifrn_pferros/')">
+            <div class="feira" style="background-image: url('./regionais/faop.jpg');"
+                onclick="window.open('https://www.instagram.com/ifrn_pferros/')">
                 <div class="feira-info">F. CIÊNCIAS ALTO OESTE POTIGUAR - RN</div>
             </div>
-            <div class="feira" style="background-image: url('./regionais/cabugi.jpg');" onclick="window.open('https://www.even3.com.br/')">
+            <div class="feira" style="background-image: url('./regionais/cabugi.jpg');"
+                onclick="window.open('https://www.even3.com.br/')">
                 <div class="feira-info">F. CIÊNCIAS SERTÃO CENTRAL CABUGI - RN</div>
             </div>
         </div>
+
+        <div class="linhaPreta"></div>
 
         <!-- CALENDÁRIO -->
         <section id="secaoCalendario">
@@ -482,7 +620,9 @@
 
     <footer>
         <p>&copy; 2026 FeirasBrasil — Todos os direitos reservados.</p>
-        <p>Contatos: <a href="https://instagram.com/augustooc7">Augusto</a>, <a href="https://instagram.com/caiofags">Caio F.</a>, <a href="https://instagram.com/dss_mauricio">Maurício</a></p>
+        <p>Contatos: <a href="https://instagram.com/augustooc7">Augusto</a>, <a
+                href="https://instagram.com/caiofags">Caio F.</a>, <a
+                href="https://instagram.com/dss_mauricio">Maurício</a></p>
     </footer>
 
 </body>
@@ -493,23 +633,23 @@
     // DATAS DAS FEIRAS — edite aqui para atualizar
     // =============================================
     const FEIRAS = [
-        { nome: "ROVERXPEDIÇÃO",                    data: "2026-08-10", local: "RN" },
-        { nome: "CIENTAF",                           data: "2026-09-15", local: "RN" },
-        { nome: "FCSP",                              data: "2026-10-05", local: "Mossoró, RN" },
-        { nome: "FECITERN",                          data: "2026-10-20", local: "Natal, RN" },
-        { nome: "FERA",                              data: "2026-11-03", local: "Caraúbas, RN" },
-        { nome: "FEIRA SERIDÓ CIÊNCIA",              data: "2026-11-18", local: "Caicó, RN" },
-        { nome: "MOCITECZN",                         data: "2026-06-12", local: "Natal, RN" },
-        { nome: "FERCITEC",                          data: "2026-07-08", local: "RN" },
-        { nome: "FECIRME",                           data: "2026-09-22", local: "Mossoró, RN" },
-        { nome: "MOCICULT",                          data: "2026-08-25", local: "Açu, RN" },
-        { nome: "F. CIÊNCIAS ALTO OESTE POTIGUAR",  data: "2026-10-14", local: "Pau dos Ferros, RN" },
+        { nome: "ROVERXPEDIÇÃO", data: "2026-08-10", local: "RN" },
+        { nome: "CIENTAF", data: "2026-09-15", local: "RN" },
+        { nome: "FCSP", data: "2026-10-05", local: "Mossoró, RN" },
+        { nome: "FECITERN", data: "2026-10-20", local: "Natal, RN" },
+        { nome: "FERA", data: "2026-11-03", local: "Caraúbas, RN" },
+        { nome: "FEIRA SERIDÓ CIÊNCIA", data: "2026-11-18", local: "Caicó, RN" },
+        { nome: "MOCITECZN", data: "2026-06-12", local: "Natal, RN" },
+        { nome: "FERCITEC", data: "2026-07-08", local: "RN" },
+        { nome: "FECIRME", data: "2026-09-22", local: "Mossoró, RN" },
+        { nome: "MOCICULT", data: "2026-08-25", local: "Açu, RN" },
+        { nome: "F. CIÊNCIAS ALTO OESTE POTIGUAR", data: "2026-10-14", local: "Pau dos Ferros, RN" },
         { nome: "F. CIÊNCIAS SERTÃO CENTRAL CABUGI", data: "2026-09-30", local: "Angicos, RN" },
     ];
     // =============================================
 
-    const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
-    const MESES_CURTOS = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    const MESES = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+    const MESES_CURTOS = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 
     let anoAtual, mesAtual;
     let participando = JSON.parse(localStorage.getItem('feirasRN_participando') || '[]');
@@ -544,7 +684,7 @@
     function mudarMes(dir) {
         mesAtual += dir;
         if (mesAtual > 11) { mesAtual = 0; anoAtual++; }
-        if (mesAtual < 0)  { mesAtual = 11; anoAtual--; }
+        if (mesAtual < 0) { mesAtual = 11; anoAtual--; }
         renderCalendario();
     }
 
@@ -555,7 +695,7 @@
         while (grid.children.length > 7) grid.removeChild(grid.lastChild);
 
         const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
-        const diasNoMes   = new Date(anoAtual, mesAtual + 1, 0).getDate();
+        const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
         const hoje = new Date();
 
         for (let i = 0; i < primeiroDia; i++) {
@@ -565,16 +705,16 @@
         }
 
         for (let d = 1; d <= diasNoMes; d++) {
-            const dataStr = `${anoAtual}-${String(mesAtual+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
-            const feiras  = feirasNaData(dataStr);
-            const ehHoje  = (d === hoje.getDate() && mesAtual === hoje.getMonth() && anoAtual === hoje.getFullYear());
+            const dataStr = `${anoAtual}-${String(mesAtual + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+            const feiras = feirasNaData(dataStr);
+            const ehHoje = (d === hoje.getDate() && mesAtual === hoje.getMonth() && anoAtual === hoje.getFullYear());
             const marcado = participando.includes(dataStr);
 
             const el = document.createElement('div');
             let cls = 'cal-dia';
-            if (ehHoje)          cls += ' hoje';
-            if (feiras.length)   cls += ' tem-feira';
-            if (marcado)         cls += ' vai-participar';
+            if (ehHoje) cls += ' hoje';
+            if (feiras.length) cls += ' tem-feira';
+            if (marcado) cls += ' vai-participar';
             el.className = cls;
             el.title = feiras.length ? feiras.map(f => f.nome).join(', ') : 'Sem feira neste dia';
             el.innerHTML = `<span>${d}</span>${feiras.length ? '<div class="ponto-feira"></div>' : ''}`;
@@ -589,7 +729,7 @@
 
     function renderLista() {
         const lista = document.getElementById('listaEventos');
-        const hoje  = new Date();
+        const hoje = new Date();
         hoje.setHours(0, 0, 0, 0);
 
         const proximas = FEIRAS
